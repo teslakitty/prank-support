@@ -1,11 +1,27 @@
+document.addEventListener("DOMContentLoaded", function () {
+    // Execute when the page is loaded
+    displayMessage("Support: Welcome to our fake support chat!");
+    displayMessage("Support: Please click the 'Send' button to start the conversation.");
+});
+
+var messages = [
+    "Support: Thank you for contacting us!",
+    "Support: Our team is working to resolve the technical issues.",
+    "Support: In the meantime, feel free to ask any questions.",
+    // Add more messages as needed
+];
+
+var messageIndex = 0;
+
 function sendMessage() {
-    var userInput = document.getElementById("userInput").value;
-
-    // Display the input text in the chat body
-    displayMessage("User: " + userInput);
-
-    // Add a response from the fake support
-    displayMessage("Support: Thank you for your message. Our team will get back to you shortly.");
+    if (messageIndex < messages.length) {
+        // Display the next message in the array
+        displayMessage(messages[messageIndex]);
+        messageIndex++;
+    } else {
+        // If all messages are displayed, show a default response
+        displayMessage("Support: Thank you for your messages. Our team will get back to you shortly.");
+    }
 
     // Clear the input field
     document.getElementById("userInput").value = "";
